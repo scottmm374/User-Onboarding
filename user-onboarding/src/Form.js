@@ -1,10 +1,10 @@
 import React from 'react';
-import { withFormik, FOrm, Field} from 'formik';
+import { withFormik, Form, Field} from 'formik';
 import axios from 'axios';
 import * as Yup from 'yup';
 
 
-function Form ({values, errors, touched, isSubmitting}) {
+function LoginForm ({values, errors, touched, isSubmitting}) {
     return (
         <Form>
             <div>
@@ -28,7 +28,7 @@ function Form ({values, errors, touched, isSubmitting}) {
     );
 }
 
-const LoginForm = withFormik ({
+const FormikForm = withFormik ({
     mapPropsToValues({ name, email, password, tos}) {
         return {
             name: name || "",
@@ -38,15 +38,34 @@ const LoginForm = withFormik ({
         };
     },
     
+    // Validation user input 
+
     validationSchema: Yup.object().shape({
-        email: Yup.string()
-            .email("Email not valid")
-            .required("Required"),
-        password: Yup.string()
-            .min(6, "Password must be at least 6 characters long")
-            .required("Required"),
+        name: Yup.string().required("Required"),
+        email: Yup.string().email("Email not valid").required("Required"),
+        password: Yup.string().min(6, "Password must be at least 6 characters long").required("Required"),
+            // want to add required for tos
     }),
-})(Form)
+
+   
+
+    // handeling user input    
+
+    handleSubmit(values, { resetForm, setSubmitting }) {
+        axios
+            .post(' https://reqres.in/api/users', values)
+            .then(res => {
+                console.log("res", res);
+                resetForm();
+                setSubmitting(false);
+           })
+            .catch(err => {
+                console.log("err", err);
+                setSubmitting(false);
+            })
+    }
+
+})(LoginForm)
     
 
-export default LoginForm;
+export default FormikForm;
