@@ -23,9 +23,30 @@ function Form ({values, errors, touched, isSubmitting}) {
                 <Field type="checkbox" name="tos" checked={values.tos} />
                 Agree to terms of service 
             </label>
+            <button disabled={isSubmitting}>Submit</button>
         </Form>
-    )
+    );
 }
+
+const LoginForm = withFormik ({
+    mapPropsToValues({ name, email, password, tos}) {
+        return {
+            name: name || "",
+            email: email || "",
+            password: password || "",
+            tos: tos || false
+        };
+    },
+    
+    validationSchema: Yup.object().shape({
+        email: Yup.string()
+            .email("Email not valid")
+            .required("Required"),
+        password: Yup.string()
+            .min(6, "Password must be at least 6 characters long")
+            .required("Required"),
+    }),
+})(Form)
     
 
-export default Form;
+export default LoginForm;
