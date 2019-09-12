@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
+import styled from 'styled-components';
 import axios from 'axios';
 import * as Yup from 'yup';
 
@@ -34,8 +35,7 @@ function LoginForm({ values, errors, touched, isSubmitting, status }) {
             <button disabled={isSubmitting}>Submit</button>
 
             {users.map((user) => (
-                <div>
-                    {/* key={user.id} */}
+                <div key={user.email}>
                     <div>Name: {user.name}</div>
                     <div>Email: {user.email}</div>
                 </div>
@@ -61,7 +61,7 @@ const FormikForm = withFormik({
         name: Yup.string().required("Required"),
         email: Yup.string().email("Email not valid").required("Required"),
         password: Yup.string().min(6, "Password must be at least 6 characters long").required("Required"),
-        // want to add required for tos
+
     }),
 
 
