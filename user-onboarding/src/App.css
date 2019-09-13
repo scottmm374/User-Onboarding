@@ -17,10 +17,21 @@ h4 {
   font-size: 1.5rem;
 }
 
+.user-input {
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px;
+  margin-top: 17px;
+  margin-bottom: 10px;
+  border-top: 2px dotted white;
+}
 
+.user-input p {
+  margin-top: 2rem;
+}
 
 .container {
-  padding-top: 75px 0;
+  margin-top: 9rem;
+  margin-bottom: 10rem;
   max-width: 100%;
 }
 
