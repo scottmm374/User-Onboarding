@@ -3,6 +3,7 @@
 }
 
 .container {
+  padding-top: 75px 0;
   max-width: 100%;
 }
 
@@ -10,8 +11,10 @@ form {
   margin-left: 453px;
 }
 
-.tos {
-  display: inline-block;
+.error {
+  color: #721c24;
+  background: #da7881;
+  
 }
 
 
@@ -19,12 +22,15 @@ input {
   width: 90%;
   border: 1px solid lightblue;
   margin-bottom: 10px;
+  background:#ff6600;
 
 }
 
 .card {
   max-width: 50%;
   margin-top: 60px;
+  background: #8fbbbc;
+  box-shadow: 0 4px 15px black;
   
 }
   

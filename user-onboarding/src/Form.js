@@ -6,6 +6,7 @@ import axios from 'axios';
 import * as Yup from 'yup';
 
 
+
 function LoginForm({ values, errors, touched, isSubmitting, status }) {
     const [users, setUsers] = useState([])
 
@@ -21,16 +22,19 @@ function LoginForm({ values, errors, touched, isSubmitting, status }) {
                 <Card>
                     <CardBody>
                         <div>
-                            {touched.name && errors.name && <p>{errors.name}</p>}
-                            <Field type="name" name="name" placeholder="Name" />
+                            {touched.name && errors.name && <p className="error">{errors.name}</p>}
+                            Enter Name
+                            <Field type="name" name="name" />
                         </div>
                         <div>
-                            {touched.email && errors.email && <p>{errors.email}</p>}
-                            <Field type="email" name="email" placeholder="Email" />
+                            {touched.email && errors.email && <p className="error">{errors.email}</p>}
+                            Enter Email
+                            <Field type="email" name="email" />
                         </div>
                         <div>
-                            {touched.password && errors.password && <p>{errors.password}</p>}
-                            <Field type="password" name="password" placeholder="Password" />
+                            {touched.password && errors.password && <p className="error">{errors.password}</p>}
+                            Enter Password
+                            <Field type="password" name="password" />
                         </div>
                         <label>
                             <div className="tos">
@@ -38,15 +42,16 @@ function LoginForm({ values, errors, touched, isSubmitting, status }) {
                             Agree to terms of service
                             </div>
                         </label>
-                       <div> <Button outline color="info" size="sm" disabled={isSubmitting}>Submit</Button></div>
+                       <div> <Button color="danger" size="sm" disabled={isSubmitting}>Submit</Button></div>
                     </CardBody>
                 </Card>
                 <Card>
                     <CardBody>
+                        <h4>User List</h4>
                         {users.map((user) => (
                             <div key={user.email}>
-                                <div>Name: {user.name}</div>
-                                <div>Email: {user.email}</div>
+                                <div> Name: {user.name}</div>
+                                <div> Email: {user.email}</div>
                             </div>
                         ))}
                     </CardBody>
