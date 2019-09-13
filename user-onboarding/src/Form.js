@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import styled from 'styled-components';
+import { Container, Card, CardBody, Button } from 'reactstrap';
 import axios from 'axios';
 import * as Yup from 'yup';
 
@@ -15,33 +16,43 @@ function LoginForm({ values, errors, touched, isSubmitting, status }) {
     }, [status])
 
     return (
-        <Form>
-            <div>
-                {touched.name && errors.name && <p>{errors.name}</p>}
-                <Field type="name" name="name" placeholder="Name" />
-            </div>
-            <div>
-                {touched.email && errors.email && <p>{errors.email}</p>}
-                <Field type="email" name="email" placeholder="Email" />
-            </div>
-            <div>
-                {touched.password && errors.password && <p>{errors.password}</p>}
-                <Field type="password" name="password" placeholder="Password" />
-            </div>
-            <label>
-                <Field type="checkbox" name="tos" checked={values.tos} />
-                Agree to terms of service
-            </label>
-            <button disabled={isSubmitting}>Submit</button>
-
-            {users.map((user) => (
-                <div key={user.email}>
-                    <div>Name: {user.name}</div>
-                    <div>Email: {user.email}</div>
-                </div>
-            ))}
-
-        </Form>
+        <Container>
+            <Form>
+                <Card>
+                    <CardBody>
+                        <div>
+                            {touched.name && errors.name && <p>{errors.name}</p>}
+                            <Field type="name" name="name" placeholder="Name" />
+                        </div>
+                        <div>
+                            {touched.email && errors.email && <p>{errors.email}</p>}
+                            <Field type="email" name="email" placeholder="Email" />
+                        </div>
+                        <div>
+                            {touched.password && errors.password && <p>{errors.password}</p>}
+                            <Field type="password" name="password" placeholder="Password" />
+                        </div>
+                        <label>
+                            <div className="tos">
+                            <Field type="checkbox" name="tos" checked={values.tos} />
+                            Agree to terms of service
+                            </div>
+                        </label>
+                       <div> <Button outline color="info" size="sm" disabled={isSubmitting}>Submit</Button></div>
+                    </CardBody>
+                </Card>
+                <Card>
+                    <CardBody>
+                        {users.map((user) => (
+                            <div key={user.email}>
+                                <div>Name: {user.name}</div>
+                                <div>Email: {user.email}</div>
+                            </div>
+                        ))}
+                    </CardBody>
+                </Card>
+            </Form>
+        </Container>
     );
 }
 
@@ -63,8 +74,6 @@ const FormikForm = withFormik({
         password: Yup.string().min(6, "Password must be at least 6 characters long").required("Required"),
 
     }),
-
-
 
     // handeling user input    
 
