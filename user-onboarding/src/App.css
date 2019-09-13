@@ -2,6 +2,23 @@
   text-align: center;
 }
 
+h4 {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.5rem;
+}
+
+.tos {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.5rem;
+}
+
+.input-field {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.5rem;
+}
+
+
+
 .container {
   padding-top: 75px 0;
   max-width: 100%;
@@ -23,7 +40,6 @@ input {
   border: 1px solid lightblue;
   margin-bottom: 10px;
   background:#ff6600;
-
 }
 
 .card {

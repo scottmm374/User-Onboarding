@@ -21,17 +21,17 @@ function LoginForm({ values, errors, touched, isSubmitting, status }) {
             <Form>
                 <Card>
                     <CardBody>
-                        <div>
+                        <div className="input-field">
                             {touched.name && errors.name && <p className="error">{errors.name}</p>}
                             Enter Name
                             <Field type="name" name="name" />
                         </div>
-                        <div>
+                        <div className="input-field">
                             {touched.email && errors.email && <p className="error">{errors.email}</p>}
                             Enter Email
                             <Field type="email" name="email" />
                         </div>
-                        <div>
+                        <div className="input-field">
                             {touched.password && errors.password && <p className="error">{errors.password}</p>}
                             Enter Password
                             <Field type="password" name="password" />
@@ -49,9 +49,9 @@ function LoginForm({ values, errors, touched, isSubmitting, status }) {
                     <CardBody>
                         <h4>User List</h4>
                         {users.map((user) => (
-                            <div key={user.email}>
-                                <div> Name: {user.name}</div>
-                                <div> Email: {user.email}</div>
+                            <div className="user-input"key={user.email}>
+                                <p> Name: {user.name}</p>
+                                <p> Email: {user.email}</p>
                             </div>
                         ))}
                     </CardBody>
