@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+}
+
+h4 {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.5rem;
+}
+
+.tos {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.5rem;
+}
+
+.input-field {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.5rem;
+}
+
+.user-input {
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px;
+  margin-top: 17px;
+  margin-bottom: 10px;
+  border-top: 2px dotted white;
+}
+
+.user-input p {
+  margin-top: 2rem;
+}
+
+.container {
+  margin-top: 9rem;
+  margin-bottom: 10rem;
+  max-width: 100%;
+}
+
+form {
+  margin-left: 453px;
+}
+
+.error {
+  color: #721c24;
+  background: #da7881;
+  
+}
+
+
+input {
+  width: 90%;
+  border: 1px solid lightblue;
+  margin-bottom: 10px;
+  background:#ff6600;
+}
+
+.card {
+  max-width: 50%;
+  margin-top: 60px;
+  background: #8fbbbc;
+  box-shadow: 0 4px 15px black;
+  
+}
+  
+
